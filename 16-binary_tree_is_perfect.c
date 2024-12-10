@@ -28,18 +28,10 @@ int get_height(const binary_tree_t *tree)
  */
 int get_size(const binary_tree_t *tree)
 {
-	int size = 1;
-
 	if (!tree)
 		return (0);
 
-	if (tree->left)
-		size += get_size(tree->left);
-
-	if (tree->right)
-		size += get_size(tree->right);
-
-	return (size);
+	return (1 + get_size(tree->left) + get_size(tree->right));
 }
 /**
  * binary_tree_is_perfect - checks if a binary tree is perfect
@@ -49,18 +41,21 @@ int get_size(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int pow = 0, res = 2;
+	int height, size, pow = 0, res = 2;
 
-	if (!tree || tree->parent)
+	if (!tree)
 		return (0);
 
-	while (pow < get_height(tree))
+	height = get_height(tree);
+	size = get_size(tree);
+
+	while (pow < height)
 	{
 		res = res * 2;
 		pow++;
 	}
 
-	if (get_size(tree) == res - 1)
+	if (size == res - 1)
 		return (1);
 
 	return (0);
