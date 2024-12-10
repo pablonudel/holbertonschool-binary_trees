@@ -6,7 +6,7 @@
  * Return : 0 if it's not a root , 1 if it is a root 
  */
 
-int binary_tree_is_root(const binary_tree_t *mood)
+int binary_tree_is_root(const binary_tree_t *node)
 {
 	if (node == NULL | node -> parent != NULL)
 		return (0);
