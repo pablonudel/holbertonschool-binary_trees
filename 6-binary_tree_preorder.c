@@ -2,9 +2,9 @@
 
 /**
  * binary_tree_preorder - go through a tree pre-order traversal
- *
  * @tree: pointer to the root
  * @func: func pointer (in this case to a func that print the current node)
+ * Return: Nothing
  */
 
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
